@@ -28,7 +28,7 @@
 // console.log(parent);
 // root.render(parent);
 
-// what we have more structure likem two children --------------------------
+// what we have more structure lik two children --------------------------
 
 let parent = React.createElement("div", { id: "parent" }, [
   React.createElement(
