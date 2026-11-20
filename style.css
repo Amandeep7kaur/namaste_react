@@ -50,5 +50,11 @@ object-fit: cover;
 .card-price{
     display: flex;
     justify-content: space-between;
-
+}
+.filter-btn{
+    padding: 10px;
+    margin: 10px;
+    color: #f5941d;
+    background-color: black;
+    border-radius: 8px;
 }

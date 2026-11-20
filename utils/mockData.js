@@ -1,36 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
 
-// AppLayout
-//  -> HeaderComp
-//    -logo
-//    -menu links
-//  -> BodyComp
-//    -search
-//    - restraunt-cards
-//  -> Footer
-//    - links
-//    -copyrights
-//    -address
-//    -contact us
-
-const Header = () => (
-  <div className="header-container">
-    <img
-      src="https://thumbs.dreamstime.com/b/food-delivery-logo-template-vector-icon-illustration-170869600.jpg"
-      className="logo"
-    ></img>
-    <div className="menu">
-      <ul>
-        <li>Home</li>
-        <li>About Us</li>
-        <li>Contact us</li>
-        <li>Cart</li>
-      </ul>
-    </div>
-  </div>
-);
-const resList  = [
+let resList  = [
             {
                 "card": {
                     "card": {
@@ -138,7 +107,7 @@ const resList  = [
                                 "American",
                                 "Fast Food"
                             ],
-                            "avgRating": 4.2,
+                            "avgRating": 3.8,
                             "parentId": "22485",
                             "avgRatingString": "4.2",
                             "totalRatingsString": "2.4K+",
@@ -337,7 +306,7 @@ const resList  = [
                                 "Fast Food",
                                 "Rolls & Wraps"
                             ],
-                            "avgRating": 4.3,
+                            "avgRating": 3.9,
                             "parentId": "547",
                             "avgRatingString": "4.3",
                             "totalRatingsString": "12K+",
@@ -760,46 +729,4 @@ const resList  = [
                 }
             }
         ];
-  
-const ResCard = ({resData}) => {
-  const {name,cuisines,avgRating,costForTwo} = resData?.card?.card?.info;
-  return (
-    <div className="res-card">
-      <img src="https://www.liveeatlearn.com/wp-content/uploads/2025/09/Veggie-Pizza-12.jpg"></img>
-      <h2>{name}</h2>
-      <p style={{ marginBottom: "none" }}>{cuisines.join(", ")}</p>
-      <div className="card-price">
-        <span>{costForTwo}</span>
-        <span>{avgRating} stars</span>
-      </div>
-    </div>
-  );
-};
-const Body = () => (
-  <div className="body-container">
-    <div className="search-bar"></div>
-    <div className="res-container">
-
-  
-  {resList.map((restaurant) => {
-    return (
-      <ResCard
-        resData={restaurant}
-        key={restaurant.card.card.info.id}
-      />
-    );
-  })}
-
-    </div>
-  </div>
-);
-const AppLayout = () => {
-  return (
-    <div className="App">
-      <Header></Header>
-      <Body></Body>
-    </div>
-  );
-};
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout/>);
+  export default resList;
