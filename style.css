@@ -14,6 +14,7 @@
     margin-top: 50px;
     margin-left: 100px;
     margin-right: 100px;
+    
 }
 .logo{
     width: 130px;
@@ -31,7 +32,7 @@ justify-content: center;
     padding:  0px 20px;
 }
 
-.res-container{
+.res-container,.Shimmer-container{
  display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
@@ -57,4 +58,35 @@ object-fit: cover;
     color: #f5941d;
     background-color: black;
     border-radius: 8px;
+}
+.Shimmer-container{
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Shimmer-card{
+   background-color: rgb(227, 227, 227);
+    border: 1px solid #b8b8b8;
+    border-radius: 16px;
+    height: 200px;
+    margin-top: 30px;
+}
+.login-btn{
+    background-color: #fbb967;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 14px;
+    color: black;
+    font-weight: 700;
+    border: 1px solid #000000;
+    cursor: pointer;
+}
+.login-btn:hover{
+    background-color: #000000;
+    color: #f5941d;
+    transition: 0.3s ease-in-out;
+}
+.search-container{
+    display: flex;
+    gap: 10px;
 }

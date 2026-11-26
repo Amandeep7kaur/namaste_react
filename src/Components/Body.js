@@ -1,6 +1,7 @@
 import ResCard from "./ResCard";
 import resList from "../../utils/mockData";
 import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 // import useEffect if want to use that code 
 const Body = () => {
@@ -143,44 +144,33 @@ const Body = () => {
 
   const [listOfRestraunts, setlistOfRestraunts] = useState(resList);
 
-  // //  => code not working due to api restriction issue ==================
- const fetchData = async () => {
-  try {
-    const response = await fetch(
-      "https://api.api.sh/swiggy/v1/restaurants"
-    );
+    useEffect(() => {
+     fetchData();
+    }, []);
 
-    const json = await response.json();
-    console.log(json);
-  } catch (error) {
-    console.log("Error fetching data:", error);
-  }
-};
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.63270&lng=77.21980&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
+      );
 
-useEffect(() => {
-  fetchData();
-}, []);
+      const json = await response.json();
+      console.log(json);
+    } catch (error) {
+      console.log("Error fetching data:", error);
+    }
+  };
 
-  // const fetchData = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.63270&lng=77.21980&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
-  //     );
+  // conditional rendering .
 
-  //     const json = await response.json();
-  //     console.log(json);
-  //   } catch (error) {
-  //     console.log("Error fetching data:", error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
-  return (
+  return listOfRestraunts.length===0 ?  <Shimmer/> : (
     <div className="body-container">
-      <div className="search-bar"></div>
+      <div className="search-container">
+        <input type="text"></input>
+        <button onClick={()=>{
+          //  card filter acc to text written in search and update UI
+        }} className="search-btn">Search</button>
+      </div>
 
       <div className="filter">
         <button className="filter-btn" onClick={() => {
