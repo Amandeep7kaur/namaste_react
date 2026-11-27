@@ -142,20 +142,22 @@ const Body = () => {
   //         ]); 
 
 
-  const [listOfRestraunts, setlistOfRestraunts] = useState(resList);
+  const [listOfRestraunts, setlistOfRestraunts] = useState([]);
 
-    useEffect(() => {
-     fetchData();
-    }, []);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const fetchData = async () => {
     try {
       const response = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.63270&lng=77.21980&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
+        "https://namastedev.com/api/v1/listRestaurants"
       );
 
       const json = await response.json();
       console.log(json);
+      setlistOfRestraunts(json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
     } catch (error) {
       console.log("Error fetching data:", error);
     }
@@ -163,19 +165,21 @@ const Body = () => {
 
   // conditional rendering .
 
-  return listOfRestraunts.length===0 ?  <Shimmer/> : (
+  return listOfRestraunts.length === 0 ? <Shimmer /> : (
     <div className="body-container">
       <div className="search-container">
         <input type="text"></input>
-        <button onClick={()=>{
+        <button onClick={() => {
           //  card filter acc to text written in search and update UI
         }} className="search-btn">Search</button>
       </div>
 
+
+    {/* filter card according to avgRating */}
       <div className="filter">
         <button className="filter-btn" onClick={() => {
           const filteredList = listOfRestraunts.filter((res) => {
-            return res.card.card.info.avgRating > 4;
+            return res.info.avgRating > 4.5;
           })
 
           setlistOfRestraunts(filteredList);
@@ -185,11 +189,11 @@ const Body = () => {
       <div className="res-container">
 
 
-        {listOfRestraunts.map((restaurant) => {
+        {listOfRestraunts.map((restraunt,index) => {
           return (
             <ResCard
-              resData={restaurant}
-              key={restaurant.card.card.info.id}
+              resData={restraunt}
+              key={index}
             />
           );
         })}

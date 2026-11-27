@@ -1,5 +1,5 @@
 const ResCard = ({resData}) => {
-  const {name,cuisines,avgRating,costForTwo} = resData?.card?.card?.info;
+  const {name,cuisines,avgRating,costForTwo} = resData?.info;
   return (
     <div className="res-card">
       <img src="https://www.liveeatlearn.com/wp-content/uploads/2025/09/Veggie-Pizza-12.jpg"></img>

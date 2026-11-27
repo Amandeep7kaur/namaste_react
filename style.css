@@ -2,7 +2,7 @@
     color:red;
 } */
 
-.header-container{
+.header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -10,68 +10,81 @@
     margin-right: 100px;
     border-bottom: 1px solid #656464;
 }
-.body-container{
+
+.body-container {
     margin-top: 50px;
     margin-left: 100px;
     margin-right: 100px;
-    
+
 }
-.logo{
+
+.logo {
     width: 130px;
     height: 100px;
 }
-.menu ul{
-display: flex;
-align-items: center;
-justify-content: center;
-}
-.menu ul li{
-    list-style-type: none;
-    color:#f5941d;
-    font-size: 20px;
-    padding:  0px 20px;
+
+.menu ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.res-container,.Shimmer-container{
- display: grid;
+.menu ul li {
+    list-style-type: none;
+    color: #f5941d;
+    font-size: 20px;
+    padding: 0px 20px;
+}
+
+.res-container,
+.Shimmer-container {
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
 }
-.res-card{
-   background-color: cornsilk;
+
+.res-card {
+    background-color: cornsilk;
     padding: 14px;
     border: 1px solid #fbb967;
     border-radius: 16px;
 }
-.res-card img{
-height: 200px;
-width: 100% ;
-object-fit: cover;
+
+.res-card img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
 }
-.card-price{
+
+.card-price {
     display: flex;
     justify-content: space-between;
 }
-.filter-btn{
+
+.filter-btn {
     padding: 10px;
     margin: 10px;
     color: #f5941d;
     background-color: black;
     border-radius: 8px;
 }
-.Shimmer-container{
+
+.Shimmer-container {
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
 }
-.Shimmer-card{
-   background-color: rgb(227, 227, 227);
+
+.Shimmer-card {
+    background-color: rgb(227, 227, 227);
     border: 1px solid #b8b8b8;
     border-radius: 16px;
-    height: 200px;
+    height: 300px;
     margin-top: 30px;
+    padding: 14px;
 }
-.login-btn{
+
+.login-btn {
     background-color: #fbb967;
     border-radius: 8px;
     padding: 8px 18px;
@@ -81,12 +94,34 @@ object-fit: cover;
     border: 1px solid #000000;
     cursor: pointer;
 }
-.login-btn:hover{
+
+.login-btn:hover {
     background-color: #000000;
     color: #f5941d;
     transition: 0.3s ease-in-out;
 }
-.search-container{
+
+.search-container,
+.circle-div {
     display: flex;
     gap: 10px;
+    margin-top: 20px;
+}
+.shimmer-image{
+    height: 250px;
+    background-color: rgb(194, 194, 194);
+    border-radius: 12px;
+}
+.small-circle {
+    background-color: rgb(197, 196, 196);
+    border-radius: 50px;
+    height: 25px;
+    width: 25px;
+}
+
+.heading-line {
+    background-color: rgb(197, 196, 196);
+    height: 20px;
+    width: 100%;
+    border-radius: 6px;
 }
